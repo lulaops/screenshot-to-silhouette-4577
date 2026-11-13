@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Single-page landing site: sections live in `src/components/site/`, composed in `src/routes/index.tsx`. Why: one page with anchor navigation (#inicio, #servicos, #sobre, #galeria, #localizacao).
+- All business facts (WhatsApp link, phone, address, services, temporary SITE_URL/opening hours) live in `src/lib/business.ts` and are covered by `src/test/business.test.ts`. Why: one place to edit, and every CTA must share the exact same WhatsApp link.
+- No backend, forms or login. Why: the client brief requires a static, lightweight site that only routes visitors to WhatsApp.
+- Photos are optimized WebP files hosted as Lovable assets in `src/assets/fotos/`; below-the-fold images use `loading="lazy"`. Why: fast mobile loading.
